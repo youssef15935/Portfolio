@@ -3,17 +3,28 @@ import profileImage from "./assets/photoCV.png";
 import Font from "react-font";
 import { TypeAnimation } from "react-type-animation";
 import resume from "./assets/CV_Youssef Abdeljalil.pdf";
-import { FaReact, FaPython, FaJsSquare } from "react-icons/fa";
-import { FaSymfony } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+import {
+  FaReact,
+  FaPython,
+  FaJsSquare,
+  FaSymfony,
+  FaGitAlt,
+  FaUniversity,
+} from "react-icons/fa";
+import { FaJava, FaGithub } from "react-icons/fa6";
 import { SiDjango } from "react-icons/si";
-import { FaJava } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { FaGitAlt } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import { FaUniversity } from "react-icons/fa";
 import { MdWork, MdWorkspacePremium } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
 import { PiReadCvLogoThin } from "react-icons/pi";
+import { GiPencilRuler } from "react-icons/gi";
+import { FaDocker } from "react-icons/fa";
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
+
 import "./index.css";
 
 const Portfolio = () => {
@@ -89,25 +100,45 @@ const Portfolio = () => {
     <div className={containerClass}>
       <Font family="Roboto Mono">
         <header className="text-center my-12 mt-4">
-          <div className="absolute top-4 right-4">
-            <label className="switch">
-              <input type="checkbox" onChange={toggleMode} checked={mode === "dark"} />
-              <span className="slider round"></span>
-            </label>
+          <div className="absolute top-4 right-4 flex items-center space-x-4">
+            {/* Conditionally render dark and light icons */}
+            {mode === "light" ? (
+              <CiLight
+                className="text-4xl cursor-pointer"
+                onClick={toggleMode}
+              />
+            ) : (
+              <MdDarkMode
+                className="text-4xl cursor-pointer"
+                onClick={toggleMode}
+              />
+            )}
           </div>
-          <a
-            href="https://github.com/youssef15935"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl transition-transform duration-300 transform hover:scale-110"
-          >
-            <FaGithub />
-          </a>
+          <div className="absolute top-4 left-4 flex space-x-8">
+            <a
+              href="https://github.com/youssef15935"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-4xl transition-transform duration-300 transform hover:scale-110"
+            >
+              <FaGithub className="text-2xl transition-transform duration-300 transform hover:scale-110" />
+            </a>
+            
+
+            <a
+              href="https://www.linkedin.com/in/youssef-abdeljalil/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-4xl transition-transform duration-300 transform hover:scale-110"
+            >
+              <FaLinkedin className="text-2xl transition-transform duration-300 transform hover:scale-110" />
+            </a>
+          </div>
 
           <img
             src={profileImage}
             alt="Youssef Abdeljalil"
-            className="h-40 w-40 rounded-full mx-auto"
+            className="h-40 w-40 rounded-full mx-auto shadow-lg hover:shadow-xl transition-shadow duration-200 border-4"
           />
           <h1 className="text-5xl font-bold mb-2 mt-4">Youssef Abdeljalil</h1>
           <br />
@@ -153,18 +184,24 @@ const Portfolio = () => {
             <FaJava className="text-8xl transition-transform duration-300 transform hover:scale-110" />
             <RiTailwindCssFill className="text-8xl transition-transform duration-300 transform hover:scale-110" />
             <FaGitAlt className="text-8xl transition-transform duration-300 transform hover:scale-110" />
+            <FaDocker className="text-8xl transition-transform duration-300 transform hover:scale-110" />
           </div>
         </section>
 
         <section className="my-24 text-center">
-          <h2 className="text-4xl font-semibold mb-6">Ma Formation</h2>
+          <h2 className="text-4xl font-semibold mb-6 flex justify-center items-center">
+            <FaUniversity className="mr-2 text-3xl" />
+            Ma Formation
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {formations.map((formation, index) => (
               <div
                 key={index}
                 className="shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200 border-4"
               >
-                <h3 className="text-2xl font-semibold mb-4">{formation.title}</h3>
+                <h3 className="text-2xl font-semibold mb-4">
+                  {formation.title}
+                </h3>
                 <p>{formation.description}</p>
               </div>
             ))}
@@ -172,7 +209,10 @@ const Portfolio = () => {
         </section>
 
         <section className="my-24 text-center">
-          <h2 className="text-4xl font-semibold mb-6">Mes Projets</h2>
+          <h2 className="text-4xl font-semibold mb-6 flex justify-center items-center">
+            <GiPencilRuler className="mr-2 text-3xl" />
+            Mes Projets
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
@@ -193,25 +233,31 @@ const Portfolio = () => {
             ))}
           </div>
         </section>
-        
 
         <section className="my-24 text-center">
-          <h2 className="text-4xl font-semibold mb-6">Mes Expériences</h2>
+          <h2 className="text-4xl font-semibold mb-6 flex justify-center items-center">
+            <MdWork className="mr-2 text-3xl" />
+            Mes Expériences
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {experiences.map((experience, index) => (
               <div
                 key={index}
                 className="shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200 border-4"
               >
-                <h3 className="text-2xl font-semibold mb-4">{experience.title}</h3>
+                <h3 className="text-2xl font-semibold mb-4">
+                  {experience.title}
+                </h3>
                 <p>{experience.description}</p>
               </div>
             ))}
           </div>
         </section>
         <section className="my-12 text-center">
-          <h2 className="text-4xl font-semibold mb-6 my-24 p-10 flex items-center justify-center"><IoMdContact className="mr-2 text-4xl" />
-          Contactez-moi</h2>
+          <h2 className="text-4xl font-semibold mb-6 my-24 p-10 flex items-center justify-center">
+            <IoMdContact className="mr-2 text-4xl" />
+            Contactez-moi
+          </h2>
           <p>
             Besoin d'un stagiaire pour votre entreprise n'hésitez pas à{" "}
             <a
@@ -224,18 +270,33 @@ const Portfolio = () => {
           </p>
         </section>
         <section className="text-center">
-          <a href={resume} download className="  font-semibold   flex items-center justify-center transition-transform duration-300 transform hover:scale-110">
-          <PiReadCvLogoThin className="mr-2 text-4xl"/>
-          Télécharger le CV
+          <a
+            href={resume}
+            download
+            className="  font-semibold   flex items-center justify-center transition-transform duration-300 transform hover:scale-110"
+          >
+            <PiReadCvLogoThin className="mr-2 text-4xl" />
+            Télécharger mon CV
           </a>
         </section>
 
         <footer className="text-center p-4">
           <p>
-            &copy; {new Date().getFullYear()} Youssef Abdeljalil. All rights reserved.
+            &copy; {new Date().getFullYear()} Youssef Abdeljalil. All rights
+            reserved.
           </p>
         </footer>
       </Font>
+      <ScrollUpButton
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType="easeOutCubic"
+        AnimationDuration={200}
+        ContainerClassName="ScrollUpButton__Container"
+        TransitionClassName="ScrollUpButton__Toggled"
+        style={{}}
+        ToggledStyle={{ right: 20 }}
+      />
     </div>
   );
 };
