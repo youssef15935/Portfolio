@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import profileImage from "./assets/photoCV.png";
 import Font from "react-font";
 import { TypeAnimation } from "react-type-animation";
-import resume from "./assets/CV_Youssef Abdeljalil.pdf";
+import resume from "./assets/CV_Youssef_Abdeljalil.pdf";
 import { FaLinkedin } from "react-icons/fa";
 
 import {
